@@ -48,7 +48,16 @@ shinyUI(fluidPage(
             em("Samples Mean: "),
             textOutput("out_sample_mean"),
             em("Samples SD: "),
-            textOutput("out_sample_sd")
+            textOutput("out_sample_sd"),
+            
+            br(),
+            br(),
+            em("Remarks:"),
+            br(),
+            em("- Theoretical Mean: Green Vertical Line"),
+            br(),
+            em("- Sample Mean: Red Vertical Line")
+            
         )
     )
 ))

@@ -41,6 +41,8 @@ shinyServer(function(input, output) {
             geom_histogram(aes(y = ..density..),
                            color = "black",
                            bins = 40) +
+            geom_vline(xintercept = theoretical.mean, color = "green") +
+            geom_vline(xintercept = sample.mean, color = "red") +
             stat_function(fun = dnorm,
                           args = list(mean = theoretical.mean,
                                       sd = theoretical.sd),
