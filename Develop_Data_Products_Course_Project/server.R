@@ -10,12 +10,9 @@
 library(shiny)
 library(ggplot2)
 
-# Define server logic required to draw a histogram
 shinyServer(function(input, output) {
     
     output$distPlot <- renderPlot({
-        
-        # generate bins based on input$bins from ui.R
         
         set.seed(20210504)
         
@@ -33,8 +30,7 @@ shinyServer(function(input, output) {
         sample.mean <- mean(exponential.mean)
         sample.var <- var(exponential.mean)
         sample.sd <- sd(exponential.mean)
-        
-        
+
         output$out_sample_mean <- renderText(sample.mean)
         output$out_sample_sd <- renderText(sample.sd)
         output$out_theoretical_mean <- renderText(theoretical.mean)
@@ -45,8 +41,6 @@ shinyServer(function(input, output) {
             geom_histogram(aes(y = ..density..),
                            color = "black",
                            bins = 40) +
-            #geom_vline(xintercept = theoretical.mean, color = "green") +
-            #geom_vline(xintercept = sample.mean, color = "red") +
             stat_function(fun = dnorm,
                           args = list(mean = theoretical.mean,
                                       sd = theoretical.sd),
@@ -62,5 +56,4 @@ shinyServer(function(input, output) {
         
     })
     
-    # output$out_sample_sd <- renderText("1")
 })

@@ -10,13 +10,10 @@
 library(shiny)
 library(ggplot2)
 
-# Define UI for application that draws a histogram
 shinyUI(fluidPage(
     
-    # Application title
     titlePanel("Developing Data Products Course Project"),
     
-    # Sidebar with a slider input for number of bins
     sidebarLayout(
         sidebarPanel(
             sliderInput("in_samp",
@@ -33,17 +30,11 @@ shinyUI(fluidPage(
                         "Lambda:",
                         choices = list("0.1", "0.2", "0.3", "0.4", "0.5", "0.6", "0.7", "0.8", "0.9"),
                         selected = "0.2"),
-            #            sliderInput("in_lamb",
-            #                        "What is the Lambda?",
-            #                        min = 0.1,
-            #                        max = 0.5,
-            #                        value = 0.2),
             br(),
             submitButton("Submit"),
             
         ),
         
-        # Show a plot of the generated distribution
         mainPanel(
             plotOutput("distPlot"),
             
